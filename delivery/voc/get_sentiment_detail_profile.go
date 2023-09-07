@@ -4,32 +4,45 @@ import (
 	"github.com/gin-gonic/gin"
 	"mock-api/domain"
 	"mock-api/pkg/utils"
-	"time"
-
 	"net/http"
+	"time"
 )
 
 func (h *vocHandler) GetSentimentProfile(ctx *gin.Context) {
 
-	res := domain.SentimentData{
-		SentimentTimeline: []domain.SentimentScoreTimeline{
+	res := domain.SentimentDetailProfile{
+		UserProfile: []domain.SocialMedia{
 			{
-				Total:    0,
-				Positive: 0,
-				Neutral:  0,
-				Mixed:    0,
-				Negative: 0,
-				Date:     time.Time{},
+				SocialMediaName: "Twitter",
+				Username:        "@wirosablengs",
+				Author:          "",
+				Followers:       24,
+				Following:       1923,
+				Friends:         0,
 			},
 		},
-		SentimentBreakdown: domain.SentimentScore{
-			Total:    0,
-			Positive: 0,
-			Neutral:  0,
-			Mixed:    0,
-			Negative: 0,
+		UserData: domain.UserData{
+			Msisdn:        "08217242839",
+			ARPU:          500000,
+			Los:           "Negative",
+			TelcoBehavior: "Gamer",
+			Location:      "Indonesia",
+			NPS:           2,
+			CSI:           "",
+			TNPS:          1,
+			CTPs:          "",
 		},
-		SentimentScore: 40,
+		SentimentProfile: []domain.SentimentProfile{
+			{
+				Description: "Gila ini sih lemot parah @telkomsel udah 2 harian ini gak bisa donlot",
+				ChannelName: "tNPS",
+				Date:        time.Time{},
+				Author:      "@wirosablengs",
+				Location:    "Indonesia",
+				Sentiment:   "Negative",
+				ThreadUrl:   "twitter.com",
+			},
+		},
 	}
 
 	ctx.JSON(http.StatusOK, utils.RestBody{

@@ -46,6 +46,8 @@ func init() {
 		{
 			sentiment.GET("/", vocHD.GetSentiment)
 			sentiment.GET("/timeline", vocHD.GetSentimentTimeline)
+			sentiment.GET("/detail-profile", vocHD.GetSentimentProfile)
+			sentiment.GET("/detail-profile/download", vocHD.DownloadInteraction)
 		}
 
 		list := vocRoute.Group("/list")
