@@ -91,25 +91,38 @@ type Sentiment struct {
 }
 
 type SentimentDetailProfile struct {
-	UserProfile      UserProfile        `json:"user_profile"`
+	UserProfile      []SocialMedia      `json:"user_profile"`
 	UserData         UserData           `json:"user_data"`
 	SentimentProfile []SentimentProfile `json:"sentiment_profile"`
 }
 
-type UserProfile struct {
+type SocialMedia struct {
+	SocialMediaName string
+	Username        string
+	Author          string
+	Followers       int
+	Following       int
+	Friends         int
 }
 
 type UserData struct {
-}
-
-type SentimentProfile struct {
-	Description   string
-	ChannelName   string
-	Author        string
 	Msisdn        string
-	Location      string
-	Sentiment     string
 	ARPU          int
 	Los           string
 	TelcoBehavior string
+	Location      string
+	NPS           int
+	CSI           string
+	TNPS          int
+	CTPs          string
+}
+
+type SentimentProfile struct {
+	Description string
+	ChannelName string
+	Date        time.Time
+	Author      string
+	Location    string
+	Sentiment   string
+	ThreadUrl   string
 }
