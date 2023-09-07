@@ -9,7 +9,7 @@ import (
 var (
 	app      *gin.Engine
 	basePath = "/api"
-	mockHD   = vocHttp.vocHandler()
+	//mockHD   = vocHttp.vocHandler()
 )
 
 func init() {
