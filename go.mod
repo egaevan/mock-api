@@ -1,6 +1,6 @@
 module mock-api
 
-go 1.19.0
+go 1.18
 
 require (
 	github.com/gin-contrib/cors v1.4.0
