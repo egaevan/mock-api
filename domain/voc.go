@@ -47,6 +47,7 @@ type CustomerType struct {
 
 type Area struct {
 	Id       int
+	Name     string
 	Location []Location `json:"location"`
 }
 
@@ -125,4 +126,46 @@ type SentimentProfile struct {
 	Location    string
 	Sentiment   string
 	ThreadUrl   string
+}
+
+type GeoMapPage struct {
+	GeoMap    []GeoMap
+	GeoByArea GeoByArea
+}
+
+type GeoMap struct {
+	TNPSScore TNPSScore
+	Location  Location
+}
+
+type GeoByArea struct {
+	Area       Area
+	TopicRatio []TopicRatio
+}
+
+type TopicRatio struct {
+	Topic Topic
+	Ratio int
+}
+
+type Source struct {
+	Id          int
+	Name        string
+	Image       string
+	Description string
+}
+
+type Topic struct {
+	Id   int
+	Name string
+}
+
+type SentimentCategory struct {
+	Id   int
+	Name string
+}
+
+type Word struct {
+	Name  string
+	Total int
 }

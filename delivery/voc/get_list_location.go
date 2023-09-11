@@ -10,7 +10,8 @@ import (
 func (h *vocHandler) GetListLocation(ctx *gin.Context) {
 	res := []domain.Area{
 		{
-			Id: 1,
+			Id:   1,
+			Name: "Area 1",
 			Location: []domain.Location{
 				{
 					Id:           1,
@@ -27,7 +28,8 @@ func (h *vocHandler) GetListLocation(ctx *gin.Context) {
 			},
 		},
 		{
-			Id: 2,
+			Id:   2,
+			Name: "Area 2",
 			Location: []domain.Location{
 				{
 					Id:           4,
@@ -48,7 +50,8 @@ func (h *vocHandler) GetListLocation(ctx *gin.Context) {
 			},
 		},
 		{
-			Id: 3,
+			Id:   3,
+			Name: "Area 3",
 			Location: []domain.Location{
 				{
 					Id:           8,
@@ -65,7 +68,8 @@ func (h *vocHandler) GetListLocation(ctx *gin.Context) {
 			},
 		},
 		{
-			Id: 4,
+			Id:   4,
+			Name: "Area 4",
 			Location: []domain.Location{
 				{
 					Id:           11,
