@@ -169,3 +169,23 @@ type Word struct {
 	Name  string
 	Total int
 }
+
+type TopicData struct {
+	Id             int
+	Name           string
+	CreatedBy      string
+	SentimentScore SentimentScore
+}
+
+type CreateCustomTopic struct {
+	Name             string   `json:"name" binding:"required"`
+	IncludedKeyword  []string `json:"included_keyword" binding:"required"`
+	ExcludedKeyword  []string `json:"excluded_keyword" binding:"required"`
+	MinimumWordCount int      `json:"minimum_word_count" binding:"required"`
+	Translation      bool     `json:"translation"`
+}
+
+type TopicDetail struct {
+	TotalPhrase    int
+	SentimentScore SentimentScore
+}
