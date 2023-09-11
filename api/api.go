@@ -58,14 +58,14 @@ func init() {
 
 		topicRoute := vocRoute.Group("/topic")
 		{
-			//topicRoute.GET("/detail", vocHD.GetTopicTrend)
-			//topicRoute.GET("/detail/download", vocHD.GetTopicTrend)
+			topicRoute.GET("/detail", vocHD.GetDetailTopic)
+			topicRoute.GET("/detail/download", vocHD.DownloadDetailTopic)
 			topicRoute.GET("/trends", vocHD.GetTopicTrend)
-			//topicRoute.GET("/custom", vocHD.GetTopicTrend)
-			//topicRoute.GET("/custom/download", vocHD.GetTopicTrend)
-			//topicRoute.GET("/custom/create", vocHD.GetTopicTrend)
-			//topicRoute.GET("/analyzed", vocHD.GetTopicTrend)
-			//topicRoute.GET("/analyzed/download", vocHD.GetTopicTrend)
+			topicRoute.GET("/custom", vocHD.GetTopicTrend)
+			topicRoute.GET("/custom/download", vocHD.DownloadCustomTopic)
+			topicRoute.POST("/custom", vocHD.CreateCustomTopic)
+			topicRoute.GET("/analyzed", vocHD.GetTopicAnalyzed)
+			topicRoute.GET("/analyzed/download", vocHD.DownloadTopicAnalyzed)
 		}
 
 		worldCloudRoute := vocRoute.Group("/world-cloud")
