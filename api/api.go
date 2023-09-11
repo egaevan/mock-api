@@ -35,27 +35,55 @@ func init() {
 
 	vocRoute := route.Group("/voc")
 	{
-		tnps := vocRoute.Group("/tnps")
+		tnpsRoute := vocRoute.Group("/tnps")
 		{
-			tnps.GET("/", vocHD.GetTNPS)
-			tnps.GET("/metric", vocHD.GetTNPSMetric)
-			tnps.GET("/metric/download", vocHD.DownloadMetric)
+			tnpsRoute.GET("/", vocHD.GetTNPS)
+			tnpsRoute.GET("/metric", vocHD.GetTNPSMetric)
+			tnpsRoute.GET("/metric/download", vocHD.DownloadMetric)
 		}
 
-		sentiment := vocRoute.Group("/sentiment")
+		sentimentRoute := vocRoute.Group("/sentiment")
 		{
-			sentiment.GET("/", vocHD.GetSentiment)
-			sentiment.GET("/timeline", vocHD.GetSentimentTimeline)
-			sentiment.GET("/detail-profile", vocHD.GetSentimentProfile)
-			sentiment.GET("/detail-profile/download", vocHD.DownloadInteraction)
+			sentimentRoute.GET("/", vocHD.GetSentiment)
+			sentimentRoute.GET("/timeline", vocHD.GetSentimentTimeline)
+			sentimentRoute.GET("/download", vocHD.DownloadSentiment)
+			sentimentRoute.GET("/detail-profile", vocHD.GetSentimentProfile)
+			sentimentRoute.GET("/detail-profile/download", vocHD.DownloadInteraction)
+		}
+
+		geoMapRoute := vocRoute.Group("/geo")
+		{
+			geoMapRoute.GET("/", vocHD.GetGeoMap)
+		}
+
+		topicRoute := vocRoute.Group("/topic")
+		{
+			//topicRoute.GET("/detail", vocHD.GetTopicTrend)
+			//topicRoute.GET("/detail/download", vocHD.GetTopicTrend)
+			topicRoute.GET("/trends", vocHD.GetTopicTrend)
+			//topicRoute.GET("/custom", vocHD.GetTopicTrend)
+			//topicRoute.GET("/custom/download", vocHD.GetTopicTrend)
+			//topicRoute.GET("/custom/create", vocHD.GetTopicTrend)
+			//topicRoute.GET("/analyzed", vocHD.GetTopicTrend)
+			//topicRoute.GET("/analyzed/download", vocHD.GetTopicTrend)
+		}
+
+		worldCloudRoute := vocRoute.Group("/world-cloud")
+		{
+			worldCloudRoute.GET("/", vocHD.GetWorldCloud)
 		}
 
 		list := vocRoute.Group("/list")
 		{
-			list.GET("/channel", vocHD.GetListChannel)
 			list.GET("/customer-type", vocHD.GetListCustomerType)
+			list.GET("/area", vocHD.GetListArea)
+			list.GET("/channel", vocHD.GetListChannel)
 			list.GET("/journey", vocHD.GetListJourney)
+			list.GET("/source", vocHD.GetListSource)
+			list.GET("/sentiment", vocHD.GetListSentimentCategory)
 			list.GET("/area/location", vocHD.GetListLocation)
+			list.GET("/topic", vocHD.GetListTopic)
+			list.GET("/nps-score", vocHD.GetListTopic)
 		}
 	}
 }
